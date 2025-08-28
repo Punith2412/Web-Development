@@ -1,0 +1,129 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Arthya Chankya - Home</title>
+    <!-- External CSS Link -->
+    <link rel="stylesheet" href="css/style.css">
+</head>
+<body>
+
+    <!-- HEADER -->
+    <header>
+        <div class="logo">
+            <img src="https://img.freepik.com/premium-vector/letter-p-with-education-logo-book-concept-training-career-sign-university-academy-graduation-logo_1014700-570.jpg?w=360" alt="p Academy Logo" width="95">
+        </div>
+        <br><br>
+        <h1 class="moving-text">Welcome to P Academy</h1>
+        <nav>
+            <a href="Home.html">Home</a>
+            <a href="About.html">About</a>
+            <a href="Services.html">Services</a>
+            <a href="Contact.html">Contact</a>
+        </nav>
+    </header>
+
+    <!-- MAIN CONTENT -->
+    <main>
+        <!-- ABOUT SECTION -->
+        <section id="about">
+            <h2>About Us</h2>
+            <p><strong>p Acadeny</strong> is a platform for <em>learning</em> coding with practical examples. 
+            Our goal is to make programming <mark>simple and fun</mark>.</p>
+            <figure>
+                <img src="images/Team image.jpg" alt="Our Team Photo" width="350">
+                <figcaption>Our dedicated teaching team</figcaption>
+            </figure>
+        </section>
+
+        <!-- SERVICES SECTION -->
+        <section id="services">
+            <h2>Our Services</h2>
+            <ul>
+                <li>Web Development Training</li>
+                <li>Python & Java Workshops</li>
+                <li>data analysis</li>
+                <li>SQL & Database Projects</li>
+            </ul>
+            <article>
+                <h3>Latest News</h3>
+                <p>Our next batch starts on <time datetime="2025-08-15">15 August 2025</time>.</p>
+                <blockquote>
+                    "Learning never exhausts the mind." — <cite>Leonardo da Vinci</cite>
+                </blockquote>
+            </article>
+        </section>
+
+        <!-- NEWSLETTER FORM -->
+        <section id="newsletter">
+            <h2>Join Our Newsletter</h2>
+            <form>
+                <label for="fullname">Full Name:</label>
+                <input type="text" id="fullname" name="fullname" placeholder="Enter your name" required>
+
+                <label for="email">Email Address:</label>
+                <input type="email" id="email" name="email" placeholder="Enter your email" required>
+
+                <label for="course">Select Interest:</label>
+                <select id="course" name="course">
+                    <option value="Web Development">Web Development</option>
+                    <option value="Python Programming">Python Programming</option>
+                    <option value="Java Programming">Java Programming</option>
+                    <option value="SQL & Database">SQL & Database</option>
+                </select>
+
+                <input type="submit" value="Subscribe" class="btn">
+            </form>
+        </section>
+
+        <!-- SUBSCRIBERS TABLE -->
+        <section id="subscribers">
+            <h2>Subscribers List</h2>
+            <table border="1" id="subscribersTable">
+                <thead>
+                    <tr>
+                        <th>Full Name</th>
+                        <th>Course</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <!-- new rows yahan aayengi -->
+                </tbody>
+            </table>
+        </section>
+    </main>
+
+    <!-- FOOTER -->
+    <footer>
+        <p>&copy; <time datetime="2025">2025</time> p Academy. All rights reserved.</p>
+        <p>Contact us at <a href="mailto:info@pAcademy.com">info@pAcademy.com</a></p>
+    </footer>
+
+    <script src="javascript/app.js"></script>
+   <script src="https://code.jquery.com/jquery-3.7.1.min.js"></script>
+
+   <!-- Inline jQuery -->
+   <script>
+    $(document).ready(function () {
+        $("form").on("submit", function (e) {
+            e.preventDefault(); // page reload na ho
+
+            let fullname = $("#fullname").val();
+            let course = $("#course").val();
+
+            // Table mein row insert
+            let newRow = `<tr>
+                            <td>${fullname}</td>
+                            <td>${course}</td>
+                          </tr>`;
+            $("#subscribersTable tbody").append(newRow);
+
+            // Form reset
+            this.reset();
+        });
+    });
+   </script>
+
+</body>
+</html>
